@@ -24,5 +24,12 @@ namespace todo_list.Services
         List<Todo> todos = _repo.Get();
         return todos;
     }
+
+    internal Todo GetOne(int todoId)
+    {
+        Todo todo = _repo.GetOne(todoId);
+        if (todo == null) throw new Exception($"no todo at id {todoId}");
+        return todo;
+    }
     }
 }

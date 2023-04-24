@@ -30,5 +30,20 @@ namespace todo_list.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{todoId}")]
+        public ActionResult<Todo> GetOne(int todoId)
+        {
+            try
+            {
+                Todo todo = _todosService.GetOne(todoId);
+                return Ok(todo);
+            }
+            catch (Exception e)
+            {
+                
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

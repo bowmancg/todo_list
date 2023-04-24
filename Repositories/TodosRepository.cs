@@ -26,5 +26,11 @@ namespace todo_list.Repositories
         {
             return _db.Todos;
         }
+
+        internal Todo GetOne(int todoId)
+        {
+            Todo todo = _db.Todos.Find(t => t.Id == todoId);
+            return todo;
+        }
     }
 }
